@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+    vuejs:
+        build:
+            context: ./
+            dockerfile: Dockerfile
+        container_name: ecf-vue-container
+        ports:
+            - '9090:8080'
+            - '9091:3000'
+        volumes:
+            - '.:/app:cached'
+
+networks: 
+    default:
+        name: ecf-vue-front-network
